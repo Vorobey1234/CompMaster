@@ -1,74 +1,50 @@
 
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="КомпМастер — ремонт и обслуживание компьютеров и ноутбуков.">
-    <title>КомпМастер — ремонт компьютеров</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="КомпМастер — ремонт и обслуживание компьютеров и ноутбуков.">
+<title>КомпМастер — ремонт компьютеров</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="css/style.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="js/main.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="js/main.js" defer></script>
 </head>
-
 <body>
 
-<!-- ШАПКА -->
 <header class="site-header">
     <div class="container site-header__inner">
 
         <a class="site-header__logo" href="index.html">
-            <i class="bi bi-pc-display-horizontal"></i>
+            <i class="bi bi-pc-display-horizontal site-header__logo-icon"></i>
             КомпМастер
         </a>
 
         <nav class="site-nav" aria-label="Основная навигация">
             <ul class="site-nav__list">
-                <li class="site-nav__item">
-                    <a class="site-nav__link site-nav__link--active" href="index.html">
-                        Главная
-                    </a>
-                </li>
-
-                <li class="site-nav__item">
-                    <a class="site-nav__link" href="catalog.html">
-                        Каталог услуг
-                    </a>
-                </li>
-
-                <li class="site-nav__item">
-                    <a class="site-nav__link" href="reviews.html">
-                        Отзывы
-                    </a>
-                </li>
-
-                <li class="site-nav__item">
-                    <a class="site-nav__link" href="contacts.html">
-                        Контакты
-                    </a>
-                </li>
-
-                <li class="site-nav__item">
-                    <a class="site-nav__link" href="#about">
-                        О себе
-                    </a>
-                </li>
+                <li><a class="site-nav__link site-nav__link--active" href="index.html">Главная</a></li>
+                <li><a class="site-nav__link" href="catalog.html">Каталог услуг</a></li>
+                <li><a class="site-nav__link" href="reviews.html">Отзывы</a></li>
+                <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                <li><a class="site-nav__link" href="about.html">О нас</a></li>
             </ul>
         </nav>
 
-        <a class="site-header__phone" href="tel:+70000000000">
-            <i class="bi bi-telephone"></i>
-            +7 000 000 00 00
-        </a>
-
-        <a class="btn btn-primary btn-sm" href="service.html?id=1#request">
-            <i class="bi bi-calendar-check"></i>
-            Записаться на диагностику
-        </a>
+        <div class="site-header__actions">
+            <a class="site-header__phone" href="tel:+70000000000">
+                <i class="bi bi-telephone"></i>
+                +7 000 000 00 00
+            </a>
+            <a class="btn btn-primary btn-sm" href="service.html?id=1#request">
+                <i class="bi bi-calendar-check"></i>
+                Записаться на диагностику
+            </a>
+        </div>
 
     </div>
 </header>
@@ -80,9 +56,7 @@
         <div class="container hero__inner">
 
             <div class="hero__content">
-                <h1 class="hero__title">
-                    Ремонт компьютеров и ноутбуков с гарантией
-                </h1>
+                <h1 class="hero__title">Ремонт компьютеров и ноутбуков с гарантией</h1>
 
                 <p class="hero__text">
                     Сервисный центр «КомпМастер»: быстрая диагностика,
@@ -91,91 +65,36 @@
                 </p>
 
                 <div class="hero__actions">
-                    <a class="btn btn-warning btn-lg hero__button"
-                       href="service.html?id=1#request">
+                    <a class="btn btn-warning btn-lg hero__button" href="service.html?id=1#request">
                         Записаться на диагностику
                     </a>
-
                     <a class="btn btn-outline-light btn-lg" href="catalog.html">
                         Каталог услуг
                     </a>
                 </div>
 
                 <p class="hero__note">
-                    Оставьте заявку — мастер перезвонит в течение 15 минут
-                    в рабочее время.
+                    Оставьте заявку — мастер перезвонит в течение 15 минут в рабочее время.
                 </p>
             </div>
 
             <div class="hero__card">
                 <ul class="hero__list">
-                    <li class="hero__list-item">
-                        <i class="bi bi-check-circle"></i>
-                        Диагностика за 1 день
-                    </li>
-                    <li class="hero__list-item">
-                        <i class="bi bi-check-circle"></i>
-                        Ремонт от 1 дня
-                    </li>
-                    <li class="hero__list-item">
-                        <i class="bi bi-check-circle"></i>
-                        Гарантия до 6 месяцев
-                    </li>
-                    <li class="hero__list-item">
-                        <i class="bi bi-check-circle"></i>
-                        Оригинальные комплектующие
-                    </li>
-                    <li class="hero__list-item">
-                        <i class="bi bi-check-circle"></i>
-                        Бесплатная консультация после ремонта
-                    </li>
+                    <li class="hero__list-item"><i class="bi bi-check-circle"></i>Диагностика за 1 день</li>
+                    <li class="hero__list-item"><i class="bi bi-check-circle"></i>Ремонт от 1 дня</li>
+                    <li class="hero__list-item"><i class="bi bi-check-circle"></i>Гарантия до 6 месяцев</li>
+                    <li class="hero__list-item"><i class="bi bi-check-circle"></i>Оригинальные комплектующие</li>
+                    <li class="hero__list-item"><i class="bi bi-check-circle"></i>Бесплатная консультация после ремонта</li>
                 </ul>
             </div>
 
         </div>
     </section>
 
-
-    <!-- О СЕБЕ -->
-    <section class="section" id="about">
-        <div class="container">
-
-            <h2 class="section__title">О себе</h2>
-
-            <div class="about__inner">
-
-                <p class="section__text">
-                    <strong>«КомпМастер»</strong> — сервисный центр по ремонту
-                    и обслуживанию компьютеров и ноутбуков. Мы выполняем весь
-                    цикл работ: от первичной диагностики до модернизации
-                    и настройки системы. Мастера центра имеют сертификаты
-                    производителей и ремонтируют технику всех популярных брендов.
-                </p>
-
-                <p class="section__text">
-                    Мы не навязываем лишние услуги: сначала бесплатная
-                    диагностика и честная смета, ремонт начинается только
-                    после вашего согласия. Если ремонт невозможен или невыгоден —
-                    мы честно скажем об этом и предложим вариант модернизации.
-                </p>
-
-                <p class="section__text">
-                    Работаем со стационарными компьютерами, ноутбуками
-                    и моноблоками. Приносите технику в сервис или вызовите
-                    курьера — заберём, отремонтируем и вернём вам работающий компьютер.
-                </p>
-
-            </div>
-        </div>
-    </section>
-
-
     <!-- ПОПУЛЯРНЫЕ УСЛУГИ -->
     <section class="section" id="popular">
         <div class="container">
-
             <h2 class="section__title">Популярные услуги</h2>
-
             <div class="services-grid" id="popular-grid"></div>
 
             <p class="text-center mt-4">
@@ -184,50 +103,39 @@
                     <i class="bi bi-arrow-right"></i>
                 </a>
             </p>
-
         </div>
     </section>
-
 
     <!-- СТАТИСТИКА -->
     <section class="section" id="stats">
         <div class="container">
-
             <div class="stats-grid">
-
                 <p class="stats-item">
                     <span class="stats-item__value">12</span>
                     <span class="stats-item__label">лет на рынке</span>
                 </p>
-
                 <p class="stats-item">
                     <span class="stats-item__value">8 000+</span>
                     <span class="stats-item__label">выполненных ремонтов</span>
                 </p>
-
                 <p class="stats-item">
                     <span class="stats-item__value">4,9</span>
                     <span class="stats-item__label">средняя оценка клиентов</span>
                 </p>
-
                 <p class="stats-item">
                     <span class="stats-item__value">98%</span>
                     <span class="stats-item__label">клиентов рекомендуют нас</span>
                 </p>
-
             </div>
         </div>
     </section>
 
-
     <!-- ПРЕИМУЩЕСТВА -->
     <section class="section section--soft" id="advantages">
         <div class="container">
-
             <h2 class="section__title">Наши преимущества</h2>
 
             <div class="advantages-grid">
-
                 <article class="advantage-card">
                     <i class="bi bi-shield-check advantage-card__icon"></i>
                     <h3 class="advantage-card__title">Гарантия до 6 месяцев</h3>
@@ -262,20 +170,16 @@
                         благодаря складу запчастей.
                     </p>
                 </article>
-
             </div>
         </div>
     </section>
 
-
     <!-- ЭТАПЫ РАБОТЫ -->
     <section class="section section--soft" id="steps">
         <div class="container">
-
             <h2 class="section__title">Как мы работаем</h2>
 
             <ol class="steps-list">
-
                 <li class="steps-list__item">
                     <h3 class="steps-list__title">Заявка</h3>
                     <p class="steps-list__text">
@@ -307,13 +211,11 @@
                         талон и даём рекомендации.
                     </p>
                 </li>
-
             </ol>
         </div>
     </section>
 
 </main>
-
 
 <!-- ПОДВАЛ -->
 <footer class="site-footer">
@@ -321,80 +223,45 @@
 
         <div class="site-footer__grid">
 
-            <!-- ИНФОРМАЦИЯ -->
             <div class="site-footer__about">
-
                 <a class="site-footer__logo" href="index.html">
                     <i class="bi bi-pc-display-horizontal"></i>
                     КомпМастер
                 </a>
-
                 <p class="site-footer__slogan">
                     Сервисный центр по ремонту, диагностике и обслуживанию
                     компьютеров и ноутбуков. Честные цены, гарантия до
                     6 месяцев, ремонт за 1–3 дня.
                 </p>
-
             </div>
 
-
-            <!-- РАЗДЕЛЫ -->
             <nav class="site-footer__nav" aria-label="Разделы сайта">
-
                 <h2 class="site-footer__title">Разделы</h2>
-
                 <ul class="site-footer__list">
-                    <li class="site-footer__list-item">
-                        <a class="site-footer__link" href="index.html">Главная</a>
-                    </li>
-                    <li class="site-footer__list-item">
-                        <a class="site-footer__link" href="catalog.html">Каталог услуг</a>
-                    </li>
-                    <li class="site-footer__list-item">
-                        <a class="site-footer__link" href="reviews.html">Отзывы</a>
-                    </li>
-                    <li class="site-footer__list-item">
-                        <a class="site-footer__link" href="contacts.html">Контакты</a>
-                    </li>
-                    <li class="site-footer__list-item">
-                        <a class="site-footer__link" href="#about">О себе</a>
-                    </li>
+                    <li class="site-footer__list-item"><a class="site-footer__link" href="index.html">Главная</a></li>
+                    <li class="site-footer__list-item"><a class="site-footer__link" href="catalog.html">Каталог услуг</a></li>
+                    <li class="site-footer__list-item"><a class="site-footer__link" href="reviews.html">Отзывы</a></li>
+                    <li class="site-footer__list-item"><a class="site-footer__link" href="contacts.html">Контакты</a></li>
+                    <li class="site-footer__list-item"><a class="site-footer__link" href="about.html">О нас</a></li>
                 </ul>
-
             </nav>
 
-
-            <!-- УСЛУГИ -->
             <div class="site-footer__services">
-
                 <h2 class="site-footer__title">Услуги</h2>
-
                 <ul class="site-footer__list">
-                    <li class="site-footer__list-item">
-                        <a class="site-footer__link" href="catalog.html">Диагностика</a>
-                    </li>
-                    <li class="site-footer__list-item">
-                        <a class="site-footer__link" href="catalog.html">Ремонт</a>
-                    </li>
-                    <li class="site-footer__list-item">
-                        <a class="site-footer__link" href="catalog.html">Чистка</a>
-                    </li>
-                    <li class="site-footer__list-item">
-                        <a class="site-footer__link" href="catalog.html">Модернизация</a>
-                    </li>
+                    <li class="site-footer__list-item"><a class="site-footer__link" href="catalog.html">Диагностика</a></li>
+                    <li class="site-footer__list-item"><a class="site-footer__link" href="catalog.html">Ремонт</a></li>
+                    <li class="site-footer__list-item"><a class="site-footer__link" href="catalog.html">Чистка</a></li>
+                    <li class="site-footer__list-item"><a class="site-footer__link" href="catalog.html">Модернизация</a></li>
                 </ul>
-
             </div>
 
-
-            <!-- КОНТАКТЫ -->
             <div class="site-footer__contacts">
-
                 <h2 class="site-footer__title">Контакты</h2>
 
                 <p class="site-footer__contact">
                     <i class="bi bi-geo-alt"></i>
-                    г. Москва, проспект Вернадского, д. 78, РТУ МИРЭА
+                    119454, г. Москва, проспект Вернадского, д. 78
                 </p>
 
                 <p class="site-footer__contact">
@@ -411,85 +278,54 @@
                     <i class="bi bi-envelope"></i>
                     <a href="mailto:mirea@mirea.ru">mirea@mirea.ru</a>
                 </p>
-
             </div>
 
         </div>
 
-
-        <!-- КОПИРАЙТ -->
         <div class="site-footer__bottom">
             <p>
-                © 2026 КомпМастер. Все права защищены.
+                Сайт разработан на HTML, CSS и JavaScript
+                с использованием Flexbox, Grid, CSS-переменных,
+                БЭМ и Bootstrap.
             </p>
-
+            <p>Разработчик: Пакин Андрей (ЭФБО-14-25)</p>
+            <p>© 2026 КомпМастер. Все права защищены.</p>
         </div>
 
     </div>
 </footer>
 
-
 <!-- МОДАЛЬНОЕ ОКНО УСЛУГИ -->
 <div class="modal fade" id="service-modal" tabindex="-1"
      aria-labelledby="service-modal-title" aria-hidden="true">
-
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-
             <div class="modal-header">
-                <h2 class="modal-title h5" id="service-modal-title">
-                    Услуга
-                </h2>
-
+                <h2 class="modal-title h5" id="service-modal-title">Услуга</h2>
                 <button class="btn-close" type="button"
-                        data-bs-dismiss="modal" aria-label="Закрыть">
-                </button>
+                        data-bs-dismiss="modal" aria-label="Закрыть"></button>
             </div>
-
             <div class="modal-body">
-
                 <p class="service-modal__info" id="service-modal-description">
                     Краткое описание услуги.
                 </p>
-
                 <div class="service-modal__meta">
-                    <span>
-                        Категория:
-                        <strong id="service-modal-category">—</strong>
-                    </span>
-
-                    <span>
-                        Стоимость:
-                        <strong id="service-modal-price">—</strong>
-                    </span>
-
-                    <span>
-                        Срок:
-                        <strong id="service-modal-days">—</strong>
-                    </span>
+                    <span>Категория: <strong id="service-modal-category">—</strong></span>
+                    <span>Стоимость: <strong id="service-modal-price">—</strong></span>
+                    <span>Срок: <strong id="service-modal-days">—</strong></span>
                 </div>
-
             </div>
-
             <div class="modal-footer">
-                <a class="btn btn-outline-secondary" href="catalog.html">
-                    Все услуги
-                </a>
-
-                <a class="btn btn-primary" id="service-modal-link"
-                   href="service.html">
+                <a class="btn btn-outline-secondary" href="catalog.html">Все услуги</a>
+                <a class="btn btn-primary" id="service-modal-link" href="service.html">
                     Перейти на страницу услуги
                 </a>
             </div>
-
         </div>
     </div>
 </div>
 
-
-<!-- КНОПКА НАВЕРХ -->
-<button class="scroll-top" id="scroll-top" type="button"
-        aria-label="Наверх">
+<button class="scroll-top" id="scroll-top" type="button" aria-label="Наверх">
     <i class="bi bi-arrow-up"></i>
 </button>
 

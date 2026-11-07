@@ -613,10 +613,10 @@ textarea[aria-invalid="true"] + .field-error { display: block; }
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--space-xl);
 }
-/* Три столба подвала: о сервисе / разделы и услуги / контакты */
+/* Три столба подвала: о сервисе / разделы / услуги / контакты */
 .site-footer__grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1.2fr;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
   gap: var(--space-2xl) var(--space-lg);
 }
 .site-footer__logo {
@@ -799,7 +799,7 @@ textarea[aria-invalid="true"] + .field-error { display: block; }
   .reviews-summary__info { text-align: center; }
 }
 
-/* 17. Подвал и адаптив трёх столбов */
+/* 17. Подвал: адаптив столбов */
 @media (max-width: 1100px) {
   .site-footer__grid { grid-template-columns: 1fr 1fr; }
   .site-footer__about { grid-column: 1 / -1; }

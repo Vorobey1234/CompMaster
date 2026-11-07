@@ -12,23 +12,32 @@
 <script src="js/main.js" defer></script>
 </head>
 <body>
+
 <header class="site-header">
-<div class="container site-header__inner">
-<a class="site-header__logo" href="index.html">
-<i class="bi bi-pc-display-horizontal site-header__logo-icon" aria-hidden="true"></i>КомпМастер
-</a>
-<nav class="site-nav" aria-label="Основная навигация">
-<ul class="site-nav__list">
-<li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
-<li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог услуг</a></li>
-<li class="site-nav__item"><a class="site-nav__link" href="service.html">Запись на ремонт</a></li>
-<li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="reviews.html" aria-current="page">Отзывы</a></li>
-<li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-</ul>
-</nav>
-<a class="site-header__phone" href="tel:+70000000000"><i class="bi bi-telephone" aria-hidden="true"></i> +7 000 000 00 00</a>
-</div>
+    <div class="container site-header__inner">
+        <a class="site-header__logo" href="index.html">
+            <i class="bi bi-pc-display-horizontal"></i> КомпМастер
+        </a>
+        <nav class="site-nav">
+            <ul class="site-nav__list">
+                <li><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li><a class="site-nav__link" href="catalog.html">Каталог услуг</a></li>
+                <li><a class="site-nav__link site-nav__link--active" href="reviews.html">Отзывы</a></li>
+                <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                <li><a class="site-nav__link" href="about.html">О нас</a></li>
+            </ul>
+        </nav>
+        <div class="site-header__actions">
+            <a class="site-header__phone" href="tel:+70000000000">
+                <i class="bi bi-telephone"></i> +7 000 000 00 00
+            </a>
+            <a class="btn btn-primary btn-sm" href="service.html?id=1#request">
+                <i class="bi bi-calendar-check"></i> Записаться на диагностику
+            </a>
+        </div>
+    </div>
 </header>
+
 <main class="container">
 <nav class="breadcrumbs" aria-label="Хлебные крошки">
 <ol class="breadcrumb">

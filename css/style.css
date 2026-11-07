@@ -66,11 +66,27 @@ section[id], [id="request"] { scroll-margin-top: calc(var(--header-height) + 16p
 img { max-width: 100%; }
 .container { max-width: var(--container-width); }
 
-/* Без закруглений на всей странице */
-*,
-*::before,
-*::after { border-radius: 0 !important; }
 ::selection { color: var(--color-dark); background-color: var(--color-text); }
+
+/* Слегка закруглённые окна и карточки (как у Apple) */
+.modal-content { border-radius: 12px; overflow: hidden; }
+.service-card,
+.review-card,
+.advantage-card,
+.steps-list__item,
+.hero__card,
+.request-form,
+.filters,
+.filters__help,
+.contact-list__item,
+.stats-grid,
+.reviews-summary,
+.accordion-item { border-radius: 10px; }
+.btn,
+.form-control,
+.form-select { border-radius: 8px; }
+.badge-tag { border-radius: 6px; }
+
 
 /* Секции */
 .section { padding: var(--space-2xl) 0; }
@@ -597,6 +613,36 @@ textarea[aria-invalid="true"] + .field-error { display: block; }
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--space-xl);
 }
+/* Три столба подвала: о сервисе / разделы и услуги / контакты */
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.2fr;
+  gap: var(--space-2xl) var(--space-lg);
+}
+.site-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.site-footer__logo:hover { color: var(--color-muted); }
+.site-footer__logo .bi { color: var(--color-muted); font-size: 1.2rem; }
+.site-footer__slogan { margin: var(--space-md) 0 0; font-size: 0.92rem; color: var(--color-muted); }
+.site-footer__title--secondary { margin-top: var(--space-lg); }
+.site-footer__contact {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: baseline;
+  margin: var(--space-xs) 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+.site-footer__contact .bi { color: var(--color-accent); }
+.site-footer__contact a { color: var(--color-muted); text-decoration: none; }
+.site-footer__contact a:hover { color: var(--color-text); }
 .site-footer__title { margin: 0 0 var(--space-sm); color: var(--color-text); font-size: 1rem; font-weight: 700; }
 .site-footer__list { padding: 0; margin: 0; list-style: none; }
 .site-footer__list li { margin: var(--space-xs) 0; }
@@ -632,9 +678,11 @@ textarea[aria-invalid="true"] + .field-error { display: block; }
 #scroll-top.is-visible,
 #scroll-top.visible,
 #scroll-top.show,
+#scroll-top.scroll-top--visible,
 .scroll-top.is-visible,
 .scroll-top.visible,
-.scroll-top.show { display: inline-flex; }
+.scroll-top.show,
+.scroll-top.scroll-top--visible { display: inline-flex; }
 
 /* ==========================================
    16. АДАПТИВ
@@ -749,4 +797,14 @@ textarea[aria-invalid="true"] + .field-error { display: block; }
 @media (max-width: 575px) {
   .reviews-summary { flex-direction: column; text-align: center; }
   .reviews-summary__info { text-align: center; }
+}
+
+/* 17. Подвал и адаптив трёх столбов */
+@media (max-width: 1100px) {
+  .site-footer__grid { grid-template-columns: 1fr 1fr; }
+  .site-footer__about { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+  .site-footer__grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+  .site-footer__title--secondary { margin-top: var(--space-lg); }
 }

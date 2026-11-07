@@ -106,3 +106,99 @@
         flex-wrap: wrap;
     }
 }
+
+
+/* Центрирование верхней панели на всех страницах */
+
+.site-header__inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+    min-height: 76px;
+}
+
+.site-header__logo {
+    justify-self: start;
+    white-space: nowrap;
+}
+
+.site-nav {
+    justify-self: center;
+}
+
+.site-nav__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 4px;
+}
+
+.site-nav__link {
+    white-space: nowrap;
+    padding: 8px 12px;
+}
+
+.site-header__actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    white-space: nowrap;
+}
+
+.site-header__actions .btn {
+    white-space: nowrap;
+}
+
+@media (max-width: 1100px) {
+    .site-header__inner {
+        grid-template-columns: 1fr auto;
+    }
+
+    .site-nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+    }
+
+    .site-nav__list {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .site-header__actions {
+        grid-column: 2;
+        grid-row: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-header__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 14px 0;
+    }
+
+    .site-nav {
+        width: 100%;
+    }
+
+    .site-nav__list {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .site-nav__link {
+        padding: 6px 9px;
+        font-size: 0.85rem;
+    }
+
+    .site-header__actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

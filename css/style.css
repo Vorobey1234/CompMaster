@@ -613,11 +613,11 @@ textarea[aria-invalid="true"] + .field-error { display: block; }
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--space-xl);
 }
-/* Три столба подвала: о сервисе / разделы / услуги / контакты */
+/* Четыре равных столба подвала */
 .site-footer__grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
-  gap: var(--space-2xl) var(--space-lg);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-lg);
 }
 .site-footer__logo {
   display: inline-flex;

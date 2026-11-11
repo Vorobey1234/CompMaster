@@ -278,7 +278,7 @@ function renderServicePage(service) {
   document.title = service.name + ' - КомпМастер';
   document.getElementById('service-title').textContent = service.name;
   document.getElementById('service-breadcrumb').textContent = service.name;
-  document.getElementById('service-badge').innerHTML = renderBadge(service);
+  document.getElementById('service-badge').innerHTML = '';
   document.getElementById('service-price').textContent = service.price + ' ₽';
   const oldPrice = document.getElementById('service-old-price');
   if (oldPrice) {

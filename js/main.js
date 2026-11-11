@@ -369,3 +369,18 @@ if (scrollTopButton) {
 // Год в подвале
 const yearElement = document.getElementById('footer-year');
 if (yearElement) yearElement.textContent = String(new Date().getFullYear());
+
+// Liquid Glass: плавное появление секций при прокрутке
+const revealSections = document.querySelectorAll('main section');
+if (revealSections.length && 'IntersectionObserver' in window) {
+  revealSections.forEach((section) => section.classList.add('reveal'));
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal--visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revealSections.forEach((section) => revealObserver.observe(section));
+}

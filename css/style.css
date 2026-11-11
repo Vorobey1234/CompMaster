@@ -970,3 +970,73 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* 21. Галерея-карусель на «О нас» (6 фото по кругу) */
+.gallery { max-width: 860px; margin: 0 auto; }
+.gallery__viewport {
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 12px;
+  background: linear-gradient(rgb(255 255 255 / 6%), rgb(255 255 255 / 2.5%));
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%), 0 14px 34px rgb(0 0 0 / 35%);
+}
+.gallery__track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.gallery__slide { flex: 0 0 100%; margin: 0; }
+.gallery__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+.gallery__caption {
+  margin: 0;
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  background-color: rgb(0 0 0 / 25%);
+  text-align: center;
+}
+.gallery__nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+.gallery__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  color: var(--color-text);
+  background-color: rgb(255 255 255 / 6%);
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: background-color var(--transition), border-color var(--transition);
+}
+.gallery__btn:hover { background-color: rgb(255 255 255 / 12%); border-color: rgb(255 255 255 / 30%); }
+.gallery-dots { display: flex; gap: var(--space-sm); }
+.gallery-dots__item {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  background-color: rgb(255 255 255 / 25%);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+.gallery-dots__item--active { background-color: var(--color-white); }
+@media (max-width: 575px) {
+  .gallery__caption { font-size: 0.8rem; }
+  .gallery__btn { width: 38px; height: 38px; }
+}

@@ -384,3 +384,52 @@ if (revealSections.length && 'IntersectionObserver' in window) {
   }, { threshold: 0.08 });
   revealSections.forEach((section) => revealObserver.observe(section));
 }
+
+// Галерея на «О нас»: карусель по кругу (зациклена, авто-прокрутка)
+const galleryTrack = document.getElementById('gallery-track');
+if (galleryTrack) {
+  const slides = Array.from(galleryTrack.children);
+  const prevButton = document.getElementById('gallery-prev');
+  const nextButton = document.getElementById('gallery-next');
+  const dotsBox = document.getElementById('gallery-dots');
+  let galleryIndex = 0;
+  let galleryTimer = null;
+
+  slides.forEach((slide, slideNumber) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'gallery-dots__item' + (slideNumber === 0 ? ' gallery-dots__item--active' : '');
+    dot.setAttribute('aria-label', 'Фото ' + (slideNumber + 1));
+    dot.addEventListener('click', () => {
+      showGallerySlide(slideNumber);
+      restartGallery();
+    });
+    dotsBox.appendChild(dot);
+  });
+
+  const dots = Array.from(dotsBox.children);
+
+  function showGallerySlide(number) {
+    galleryIndex = (number + slides.length) % slides.length;
+    galleryTrack.style.transform = 'translateX(-' + galleryIndex * 100 + '%)';
+    dots.forEach((dot, dotNumber) => {
+      dot.classList.toggle('gallery-dots__item--active', dotNumber === galleryIndex);
+    });
+  }
+
+  function restartGallery() {
+    window.clearInterval(galleryTimer);
+    galleryTimer = window.setInterval(() => showGallerySlide(galleryIndex + 1), 5000);
+  }
+
+  prevButton.addEventListener('click', () => {
+    showGallerySlide(galleryIndex - 1);
+    restartGallery();
+  });
+  nextButton.addEventListener('click', () => {
+    showGallerySlide(galleryIndex + 1);
+    restartGallery();
+  });
+
+  restartGallery();
+}

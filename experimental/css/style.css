@@ -1269,8 +1269,32 @@ body.custom-cursor * { cursor: none !important; }
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 80%), 0 14px 30px rgb(0 0 0 / 12%);
 }
 [data-theme="light"] .breadcrumbs .breadcrumb-item.active { color: var(--color-text); }
-[data-theme="light"] .hero__actions .btn-outline-light,
-[data-theme="light"] .hero__actions .btn-warning { color: #1d1d1f; }
+/* hero остаётся тёмной панелью и в светлой теме - текст внутри принудительно светлый */
+[data-theme="light"] .hero__title,
+[data-theme="light"] .hero__list-item { color: #f5f5f7; }
+[data-theme="light"] .hero__actions .btn-warning {
+  --bs-btn-color: #1d1d1f;
+  --bs-btn-bg: #f5f5f7;
+  --bs-btn-border-color: #f5f5f7;
+  --bs-btn-hover-color: #f5f5f7;
+  --bs-btn-hover-bg: #1d1d1f;
+  --bs-btn-hover-border-color: #1d1d1f;
+  color: #1d1d1f;
+  background-color: #f5f5f7;
+  border-color: #f5f5f7;
+}
+[data-theme="light"] .hero__actions .btn-outline-light {
+  --bs-btn-color: #f5f5f7;
+  --bs-btn-border-color: rgb(245 245 247 / 60%);
+  --bs-btn-hover-color: #1d1d1f;
+  --bs-btn-hover-bg: #f5f5f7;
+  --bs-btn-hover-border-color: #f5f5f7;
+  color: #f5f5f7;
+  border-color: rgb(245 245 247 / 60%);
+}
+[data-theme="light"] .hero__card,
+[data-theme="light"] .hero__card * { color: #f5f5f7; }
+[data-theme="light"] .request-form__agreement { color: var(--color-muted); }
 [data-theme="light"] .request-form { color: var(--color-text); }
 [data-theme="light"] .badge-tag { color: #ffffff; background-color: #1d1d1f; }
 [data-theme="light"] .scroll-top { color: #ffffff; }

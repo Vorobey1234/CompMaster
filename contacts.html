@@ -15,11 +15,11 @@
 <body>
 
 <header class="site-header">
-    <div class="container site-header__inner">
-        <a class="site-header__logo" href="index.html">
-            <i class="bi bi-pc-display-horizontal site-header__logo-icon"></i> КомпМастер
-        </a>
-        <nav class="site-nav" aria-label="Основная навигация">
+<div class="container site-header__inner">
+<a class="site-header__logo" href="index.html">
+<i class="bi bi-pc-display-horizontal site-header__logo-icon"></i> КомпМастер
+</a>
+<nav class="site-nav" aria-label="Основная навигация">
 <ul class="site-nav__list">
 <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
 <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог услуг</a></li>
@@ -27,24 +27,23 @@
 <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="contacts.html" aria-current="page">Контакты</a></li>
 </ul>
 </nav>
-        <div class="site-header__actions">
-            <a class="btn btn-primary btn-sm" href="service.html?id=1#request">
-                <i class="bi bi-calendar-check"></i> Записаться на диагностику
-            </a>
-        </div>
-    </div>
+<div class="site-header__actions">
+<a class="btn btn-primary btn-sm" href="service.html?id=1#request">
+<i class="bi bi-calendar-check"></i> Записаться на диагностику
+</a>
+</div>
+</div>
 </header>
 
 <main class="container">
-<!-- Хлебные крошки -->
 <nav class="breadcrumbs" aria-label="Хлебные крошки">
 <ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
 <li class="breadcrumb-item active" aria-current="page">Контакты</li>
 </ol>
 </nav>
+
 <div class="contacts-layout section">
-<!-- Контактные данные и карта -->
 <section aria-labelledby="contacts-title">
 <h1 class="section__title text-start" id="contacts-title">Контакты</h1>
 <ul class="contact-list">
@@ -66,7 +65,7 @@
 <i class="bi bi-telephone contact-list__icon" aria-hidden="true"></i>
 <div>
 <p class="contact-list__label">Телефон</p>
-<p class="contact-list__value"><a href="tel:+70000000000">+7 000 000 00 00</a> - консультация и запись на ремонт</p>
+<p class="contact-list__value"><a href="tel:+79161233222">+7 916 123 32 22</a> - консультация и запись на ремонт</p>
 </div>
 </li>
 <li class="contact-list__item">
@@ -84,15 +83,18 @@
 </div>
 </li>
 </ul>
+
 <h2 class="service-page__section-title">Мы на карте</h2>
 <iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=37.4700%2C55.6650%2C37.4900%2C55.6750&amp;layer=mapnik&amp;marker=55.6699%2C37.4801" title="Карта проезда к сервисному центру: главный корпус МИРЭА, проспект Вернадского, 78" loading="lazy"></iframe>
 
 <p class="mt-2">
-  <a href="https://www.openstreetmap.org/?mlat=55.6699&amp;mlon=37.4801#map=17/55.6699/37.4801" target="_blank" rel="noopener">Открыть карту в полном размере</a>
+<a href="https://www.openstreetmap.org/?mlat=55.6699&amp;mlon=37.4801#map=17/55.6699/37.4801" target="_blank" rel="noopener">Открыть карту в полном размере</a>
 </p>
-<p class="text-center mt-2 mb-0"><a href="https://yandex.ru/maps/?text=Москва%2C%20проспект%20Вернадского%2C%2078" target="_blank" rel="noopener">Открыть в Яндекс Картах <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></p>
+<p class="text-center mt-2 mb-0">
+<a href="https://yandex.ru/maps/?text=Москва%2C%20проспект%20Вернадского%2C%2078" target="_blank" rel="noopener">Открыть в Яндекс Картах <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+</p>
 </section>
-<!-- Форма обратной связи -->
+
 <section aria-labelledby="feedback-form-title">
 <form class="request-form" id="feedback-form" action="#" method="post" data-validate novalidate>
 <h2 class="request-form__title" id="feedback-form-title">Обратная связь</h2>
@@ -122,7 +124,7 @@
 </form>
 </section>
 </div>
-<!-- Часто задаваемые вопросы -->
+
 <section class="section faq" id="faq">
 <h2 class="section__title">Часто задаваемые вопросы</h2>
 <div class="accordion" id="faq-accordion">
@@ -169,6 +171,7 @@
 </div>
 </section>
 </main>
+
 <footer class="site-footer">
 <div class="container">
 <div class="site-footer__grid">
@@ -185,12 +188,12 @@
 </ul>
 </nav>
 <div class="site-footer__contacts">
-  <h2 class="site-footer__title">Контакты</h2>
-  <p class="site-footer__contact"><i class="bi bi-geo-alt" aria-hidden="true"></i>Россия, г. Москва, проспект Вернадского, д. 78</p>
-  <p class="site-footer__contact"><i class="bi bi-telephone" aria-hidden="true"></i><a href="tel:+71234567890">+7 123 456 78 90</a></p>
-  <p class="site-footer__contact"><i class="bi bi-clock" aria-hidden="true"></i>Пн-Сб: 10:00-20:00 · Вс: 11:00-17:00</p>
-  <p class="site-footer__contact"><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:mirea@mirea.ru">mirea@mirea.ru</a></p>
-  <p class="site-footer__contact"><i class="bi bi-telegram" aria-hidden="true"></i><a href="https://t.me/compmaster_service" target="_blank" rel="noopener">@compmaster_service</a></p>
+<h2 class="site-footer__title">Контакты</h2>
+<p class="site-footer__contact"><i class="bi bi-geo-alt" aria-hidden="true"></i>Россия, г. Москва, проспект Вернадского, д. 78</p>
+<p class="site-footer__contact"><i class="bi bi-telephone" aria-hidden="true"></i><a href="tel:+79161233222">+7 916 123 32 22</a></p>
+<p class="site-footer__contact"><i class="bi bi-clock" aria-hidden="true"></i>Пн-Сб: 10:00-20:00 · Вс: 11:00-17:00</p>
+<p class="site-footer__contact"><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:mirea@mirea.ru">mirea@mirea.ru</a></p>
+<p class="site-footer__contact"><i class="bi bi-telegram" aria-hidden="true"></i><a href="https://t.me/compmaster_service" target="_blank" rel="noopener">@compmaster_service</a></p>
 </div>
 </div>
 <div class="site-footer__bottom">
@@ -198,6 +201,14 @@
 </div>
 </div>
 </footer>
-<button class="scroll-top" id="scroll-top" type="button" aria-label="Наверх"><svg class="scroll-top__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M12 3v6"/><path d="M6.5 9h11"/><rect x="11" y="5" width="2" height="2.6" rx="1" fill="currentColor" stroke="none" class="scroll-top__wheel"/></svg></button>
+
+<button class="scroll-top" id="scroll-top" type="button" aria-label="Наверх">
+<svg class="scroll-top__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="6" y="3" width="12" height="18" rx="6"/>
+<path d="M12 3v6"/>
+<path d="M6.5 9h11"/>
+<rect x="11" y="5" width="2" height="2.6" rx="1" fill="currentColor" stroke="none" class="scroll-top__wheel"/>
+</svg>
+</button>
 </body>
 </html>

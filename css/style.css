@@ -686,7 +686,13 @@ textarea[aria-invalid="true"] + .field-error { display: block; }
 .scroll-top.visible,
 .scroll-top.show,
 .scroll-top.scroll-top--visible { display: inline-flex; }
-.scroll-top .bi { -webkit-text-stroke: 1px currentColor; }
+.scroll-top__icon { display: block; width: 24px; height: 24px; }
+.scroll-top__wheel { animation: scroll-top-wheel 1.6s ease-in-out infinite; }
+@keyframes scroll-top-wheel {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-1.5px); opacity: 0.6; }
+}
+@media (prefers-reduced-motion: reduce) { .scroll-top__wheel { animation: none; } }
 .scroll-top:hover { color: var(--color-white); background-color: var(--color-border); border-color: var(--color-muted); }
 
 /* ==========================================

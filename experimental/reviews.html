@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Отзывы клиентов сервисного центра «КомпМастер»: реальные истории о ремонте компьютеров и ноутбуков.">
+<title>Отзывы - КомпМастер</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="js/main.js" defer></script>
+</head>
+<body>
+<div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+
+<header class="site-header">
+    <div class="container site-header__inner">
+        <a class="site-header__logo" href="index.html">
+            <i class="bi bi-pc-display-horizontal site-header__logo-icon"></i> КомпМастер
+        </a>
+        <nav class="site-nav" aria-label="Основная навигация">
+<ul class="site-nav__list">
+<li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+<li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог услуг</a></li>
+<li class="site-nav__item"><a class="site-nav__link" href="about.html">О нас</a></li>
+<li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+</ul>
+</nav>
+<div class="site-header__actions">
+<button class="header-icon-btn" id="theme-toggle" type="button" aria-label="Сменить тему"><i class="bi bi-sun-fill" aria-hidden="true"></i></button>
+<button class="header-icon-btn" id="search-open" type="button" aria-label="Поиск по сайту"><i class="bi bi-search" aria-hidden="true"></i></button>
+</div>
+        </div>
+</header>
+
+<main class="container">
+<nav class="breadcrumbs" aria-label="Хлебные крошки">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+<li class="breadcrumb-item active" aria-current="page">Отзывы</li>
+</ol>
+</nav>
+<section class="section">
+<h1 class="section__title">Отзывы клиентов</h1>
+<p class="section__text text-center mb-4">Клиенты сервисного центра «КомпМастер» рассказывают о своём опыте диагностики, ремонта и обслуживания техники.</p>
+<div class="reviews-summary">
+<p class="reviews-summary__score">4,9</p>
+<div class="reviews-summary__info">
+<p class="reviews-summary__stars" aria-label="Средняя оценка 4,9 из 5"><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-half" aria-hidden="true"></i></p>
+<p class="reviews-summary__label">средняя оценка клиентов · 98% рекомендуют нас · 8 000+ выполненных ремонтов</p>
+</div>
+</div>
+<div class="reviews-grid">
+<blockquote class="review-card">
+<p class="review-card__text">«Ноутбук страшно тормозил и грелся. Почистили, поменяли термопасту и поставили SSD - теперь летает. Сделали за один день, как и обещали.»</p>
+<p class="review-card__rating" aria-label="Оценка 5 из 5"><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i></p>
+<footer class="review-card__author">Анна, ноутбук ASUS</footer>
+</blockquote>
+<blockquote class="review-card">
+<p class="review-card__text">«Разбила экран ноутбука, думала, придётся покупать новый. Заменили матрицу за два дня, вышло втрое дешевле нового ноутбука. Спасибо!»</p>
+<p class="review-card__rating" aria-label="Оценка 5 из 5"><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i></p>
+<footer class="review-card__author">Мария, ноутбук Lenovo</footer>
+</blockquote>
+<blockquote class="review-card">
+<p class="review-card__text">«Собрали игровой ПК под мой бюджет, всё протестировали, дали гарантию. Кабели уложены идеально, внутри всё как с завода.»</p>
+<p class="review-card__rating" aria-label="Оценка 5 из 5"><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i></p>
+<footer class="review-card__author">Дмитрий, сборка ПК</footer>
+</blockquote>
+<blockquote class="review-card">
+<p class="review-card__text">«ПК перестал включаться прямо перед сессией. Диагностировали за пару часов, заменили блок питания - всё работает, документы целы.»</p>
+<p class="review-card__rating" aria-label="Оценка 5 из 5"><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i></p>
+<footer class="review-card__author">Сергей, стационарный ПК</footer>
+</blockquote>
+<blockquote class="review-card">
+<p class="review-card__text">«Подхватила вирус-шифровальщик, мастера восстановили почти все файлы и настроили защиту, чтобы такого больше не случилось.»</p>
+<p class="review-card__rating" aria-label="Оценка 4 из 5"><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star" aria-hidden="true"></i></p>
+<footer class="review-card__author">Ольга, ноутбук HP</footer>
+</blockquote>
+<blockquote class="review-card">
+<p class="review-card__text">«Приносил моноблок на профилактику: чистка, оптимизация, обновление. Работает тихо и быстро, цена совпала со сметой до рубля.»</p>
+<p class="review-card__rating" aria-label="Оценка 5 из 5"><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i></p>
+<footer class="review-card__author">Игорь, моноблок</footer>
+</blockquote>
+</div>
+</section>
+
+<section class="section" aria-labelledby="review-form-title">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-7">
+<form class="request-form" id="review-form" action="#" method="post" data-validate novalidate>
+<h2 class="request-form__title" id="review-form-title">Оставить отзыв</h2>
+<p class="request-form__note">Расскажите, как прошёл ремонт - это поможет другим клиентам выбрать сервис.</p>
+<div class="row g-3">
+<div class="col-md-6">
+<label class="form-label" for="review-name">Имя <span class="text-danger">*</span></label>
+<input class="form-control" id="review-name" name="name" type="text" required minlength="2" placeholder="Иван" autocomplete="name">
+<p class="field-error">Введите имя (минимум 2 символа).</p>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="review-rating">Оценка <span class="text-danger">*</span></label>
+<select class="form-select" id="review-rating" name="rating" required>
+<option value="" selected>Выберите оценку</option>
+<option value="5">5 - отлично</option>
+<option value="4">4 - хорошо</option>
+<option value="3">3 - нормально</option>
+<option value="2">2 - плохо</option>
+<option value="1">1 - ужасно</option>
+</select>
+<p class="field-error">Выберите оценку.</p>
+</div>
+<div class="col-12">
+<label class="form-label" for="review-text">Текст отзыва <span class="text-danger">*</span></label>
+<textarea class="form-control" id="review-text" name="text" rows="4" required minlength="10" placeholder="Что понравилось, что можно улучшить"></textarea>
+<p class="field-error">Напишите отзыв (минимум 10 символов).</p>
+</div>
+</div>
+<div class="request-form__actions mt-3">
+<button class="btn btn-primary btn-lg" type="submit">Отправить отзыв</button>
+</div>
+<p class="form-message form-message--success" hidden><i class="bi bi-check-circle" aria-hidden="true"></i> Спасибо! Ваш отзыв отправлен и появится на сайте после проверки.</p>
+<p class="form-message form-message--error" hidden><i class="bi bi-exclamation-triangle" aria-hidden="true"></i> Проверьте правильность заполнения полей формы.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container">
+<div class="site-footer__grid">
+<div class="site-footer__about">
+<a class="site-footer__logo" href="index.html"><i class="bi bi-pc-display-horizontal" aria-hidden="true"></i>КомпМастер</a>
+<p class="site-footer__slogan">Сервисный центр по ремонту, диагностике и обслуживанию компьютеров и ноутбуков. Честные цены, гарантия до 6 месяцев, ремонт за 1-3 дня.</p>
+</div>
+<nav class="site-footer__nav" aria-label="Разделы сайта">
+<h2 class="site-footer__title">Разделы</h2>
+<ul class="site-footer__list">
+<li class="site-footer__list-item"><a class="site-footer__link" href="index.html">Главная</a></li>
+<li class="site-footer__list-item"><a class="site-footer__link" href="catalog.html">Каталог услуг</a></li>
+<li class="site-footer__list-item"><a class="site-footer__link" href="about.html">О нас</a></li>
+<li class="site-footer__list-item"><a class="site-footer__link" href="contacts.html">Контакты</a></li>
+</ul>
+</nav>
+<div class="site-footer__contacts">
+<h2 class="site-footer__title">Контакты</h2>
+<p class="site-footer__contact"><i class="bi bi-geo-alt" aria-hidden="true"></i>Россия, г. Москва, проспект Вернадского, д. 78</p>
+<p class="site-footer__contact"><i class="bi bi-telegram" aria-hidden="true"></i><a href="https://t.me/compmaster_service" target="_blank" rel="noopener">@compmaster_service</a></p>
+<p class="site-footer__contact"><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:mirea@mirea.ru">mirea@mirea.ru</a></p>
+<p class="site-footer__contact"><i class="bi bi-clock" aria-hidden="true"></i>Пн-Сб: 10:00-20:00 · Вс: 11:00-17:00</p>
+</div>
+</div>
+<div class="site-footer__bottom">
+<p>&copy; 2026 КомпМастер. Все права защищены.</p>
+</div>
+</div>
+</footer>
+<button class="scroll-top" id="scroll-top" type="button" aria-label="Наверх"><i class="bi bi-arrow-up" aria-hidden="true"></i></button>
+
+<div class="search-overlay" id="search-overlay" aria-hidden="true">
+<div class="search-overlay__backdrop" id="search-backdrop"></div>
+<div class="search-overlay__panel" role="dialog" aria-modal="true" aria-label="Поиск по сайту">
+<div class="search-overlay__header">
+<i class="bi bi-search search-overlay__icon" aria-hidden="true"></i>
+<input class="search-overlay__input" id="search-input" type="search" placeholder="Поиск: услуги, страницы..." autocomplete="off">
+<button class="search-overlay__close" id="search-close" type="button" aria-label="Закрыть поиск"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+</div>
+<div class="search-overlay__results" id="search-results" role="listbox"></div>
+</div>
+</div>
+</body>
+</html>

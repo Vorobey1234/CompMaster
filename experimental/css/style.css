@@ -1168,6 +1168,8 @@ body.custom-cursor * { cursor: none !important; }
 /* 25. ЭКСПЕРИМЕНТ: светлая тема */
 [data-theme="light"] {
   --color-bg: #f5f5f7;
+  --color-danger: #d64545;
+  --color-success: #17994c;
   --color-text: #1d1d1f;
   --color-muted: #6e6e73;
   --color-primary: #1d1d1f;
@@ -1246,3 +1248,37 @@ body.custom-cursor * { cursor: none !important; }
 @media (prefers-reduced-motion: reduce) {
   .reveal-card { opacity: 1; transform: none; transition: none; }
 }
+
+/* 27. Светлая тема: точечные исправления контрастности */
+[data-theme="light"] .stats-grid {
+  background: #1d1d1f;
+  border: 1px solid #0a0a0b;
+  box-shadow: 0 14px 34px rgb(0 0 0 / 16%);
+  color: #ffffff;
+}
+[data-theme="light"] .stats-item__label { color: rgb(255 255 255 / 72%); }
+[data-theme="light"] .site-footer__bottom { border-top-color: var(--color-border); }
+[data-theme="light"] .service-card::before,
+[data-theme="light"] .review-card::before,
+[data-theme="light"] .request-form::before {
+  background: linear-gradient(90deg, transparent, rgb(0 0 0 / 22%), transparent);
+}
+[data-theme="light"] .service-card:hover,
+[data-theme="light"] .review-card:hover {
+  border-color: rgb(0 0 0 / 28%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 80%), 0 14px 30px rgb(0 0 0 / 12%);
+}
+[data-theme="light"] .breadcrumbs .breadcrumb-item.active { color: var(--color-text); }
+[data-theme="light"] .hero__actions .btn-outline-light,
+[data-theme="light"] .hero__actions .btn-warning { color: #1d1d1f; }
+[data-theme="light"] .request-form { color: var(--color-text); }
+[data-theme="light"] .badge-tag { color: #ffffff; background-color: #1d1d1f; }
+[data-theme="light"] .scroll-top { color: #ffffff; }
+[data-theme="light"] .gallery__viewport { background: #ffffff; }
+[data-theme="light"] .search-overlay__panel { background-color: #ffffff; }
+[data-theme="light"] .contact-list__item .bi { color: var(--color-muted); }
+[data-theme="light"] .service-card__icon,
+[data-theme="light"] .advantage-card__icon,
+[data-theme="light"] .contact-list__icon { color: var(--color-muted); }
+[data-theme="light"] .breadcrumb { --bs-breadcrumb-divider-color: var(--color-muted); }
+[data-theme="light"] .modal-backdrop { --bs-backdrop-opacity: 0.4; }

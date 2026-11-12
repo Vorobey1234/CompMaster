@@ -113,7 +113,7 @@ const SERVICES = [
   {
     id: 9,
     category: 'upgrade',
-    icon: 'bi-ssd',
+    icon: 'bi-device-ssd',
     name: 'Установка SSD-накопителя',
     price: 1800,
     days: '1 день',

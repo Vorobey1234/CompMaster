@@ -816,7 +816,9 @@ textarea[aria-invalid="true"] + .field-error { display: block; }
   .site-footer__about { grid-column: 1 / -1; }
 }
 @media (max-width: 700px) {
-  .site-footer__grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+  /* Разделы слева, контакты справа — и на телефоне тоже */
+  .site-footer__grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-lg) var(--space-md); }
+  .site-footer__contact { font-size: 0.85rem; overflow-wrap: anywhere; }
   .site-footer__title--secondary { margin-top: var(--space-lg); }
 }
 

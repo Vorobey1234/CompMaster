@@ -20,13 +20,13 @@
             <i class="bi bi-pc-display-horizontal site-header__logo-icon"></i> КомпМастер
         </a>
         <nav class="site-nav" aria-label="Основная навигация">
-<ul class="site-nav__list">
-<li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
-<li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог услуг</a></li>
-<li class="site-nav__item"><a class="site-nav__link" href="about.html">О нас</a></li>
-<li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-</ul>
-</nav>
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог услуг</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="about.html">О нас</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
         <div class="site-header__actions">
             <a class="btn btn-primary btn-sm" href="service.html?id=1#request">
                 <i class="bi bi-calendar-check"></i> Записаться на диагностику
@@ -34,50 +34,57 @@
         </div>
     </div>
 </header>
+
 <main class="container">
-<!-- Хлебные крошки -->
 <nav class="breadcrumbs" aria-label="Хлебные крошки">
-<ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="index.html">Главная</a></li>
-<li class="breadcrumb-item active" aria-current="page">Каталог услуг</li>
-</ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Каталог услуг</li>
+    </ol>
 </nav>
+
 <div class="catalog-layout section">
-<!-- Боковая панель с фильтрами -->
-<aside class="filters" aria-label="Фильтры услуг">
-<form id="filters-form">
-<h2 class="filters__title">Фильтры</h2>
-<fieldset class="filters__group">
-<legend class="filters__group-title">Категория</legend>
-<label class="filters__option"><input type="checkbox" name="category" value="diagnostics"> Диагностика</label>
-<label class="filters__option"><input type="checkbox" name="category" value="repair"> Ремонт</label>
-<label class="filters__option"><input type="checkbox" name="category" value="cleaning"> Чистка</label>
-<label class="filters__option"><input type="checkbox" name="category" value="upgrade"> Модернизация</label>
-</fieldset>
-<fieldset class="filters__group">
-<legend class="filters__group-title">Стоимость</legend>
-<label class="filters__option"><input type="radio" name="price" value="any" checked> Любая</label>
-<label class="filters__option"><input type="radio" name="price" value="p1"> До 1 000 ₽</label>
-<label class="filters__option"><input type="radio" name="price" value="p2"> 1 000 - 2 000 ₽</label>
-<label class="filters__option"><input type="radio" name="price" value="p3"> Больше 2 000 ₽</label>
-</fieldset>
-<button class="btn btn-outline-secondary w-100" type="reset">Сбросить фильтры</button>
-<p class="filters__results" id="filters-result" role="status"></p>
-</form>
-<div class="filters__help">
-<p class="filters__help-title">Не нашли нужную услугу?</p>
-<p class="filters__help-text">Запишитесь на диагностику - мастер разберётся в проблеме и подберёт решение.</p>
-<a class="btn btn-primary w-100 mt-3" href="service.html?id=1#request"><i class="bi bi-calendar-check" aria-hidden="true"></i> Записаться на диагностику</a>
-</div>
-</aside>
-<!-- Сетка услуг -->
-<section aria-label="Список услуг">
-<h1 class="section__title">Каталог услуг</h1>
-<p class="section__text text-center mb-4">Диагностика, ремонт, чистка и модернизация - 12 услуг с ценами и сроками. Нажмите «Подробнее» на карточке, чтобы открыть краткое описание, или перейдите на страницу услуги, чтобы записаться на ремонт.</p>
-<div class="services-grid services-grid--catalog" id="services-grid"></div>
-</section>
+    <aside class="filters" aria-label="Фильтры услуг">
+        <form id="filters-form">
+            <h2 class="filters__title">Фильтры</h2>
+            <fieldset class="filters__group">
+                <legend class="filters__group-title">Категория</legend>
+                <label class="filters__option"><input type="checkbox" name="category" value="diagnostics"> Диагностика</label>
+                <label class="filters__option"><input type="checkbox" name="category" value="repair"> Ремонт</label>
+                <label class="filters__option"><input type="checkbox" name="category" value="cleaning"> Чистка</label>
+                <label class="filters__option"><input type="checkbox" name="category" value="upgrade"> Модернизация</label>
+            </fieldset>
+            <fieldset class="filters__group">
+                <legend class="filters__group-title">Стоимость</legend>
+                <label class="filters__option"><input type="radio" name="price" value="any" checked> Любая</label>
+                <label class="filters__option"><input type="radio" name="price" value="p1"> До 1 000 ₽</label>
+                <label class="filters__option"><input type="radio" name="price" value="p2"> 1 000 - 2 000 ₽</label>
+                <label class="filters__option"><input type="radio" name="price" value="p3"> Больше 2 000 ₽</label>
+            </fieldset>
+            <button class="btn btn-outline-secondary w-100" type="reset">Сбросить фильтры</button>
+            <p class="filters__results" id="filters-result" role="status"></p>
+        </form>
+        <div class="filters__help">
+            <p class="filters__help-title">Не нашли нужную услугу?</p>
+            <p class="filters__help-text">Запишитесь на диагностику - мастер разберётся в проблеме и подберёт решение.</p>
+            <a class="btn btn-primary w-100 mt-3" href="service.html?id=1#request">
+                <i class="bi bi-calendar-check" aria-hidden="true"></i> Записаться на диагностику
+            </a>
+        </div>
+    </aside>
+
+    <section aria-label="Список услуг">
+        <h1 class="section__title">Каталог услуг</h1>
+        <p class="section__text text-center mb-4">
+            Диагностика, ремонт, чистка и модернизация - 12 услуг с ценами и сроками.
+            Нажмите «Подробнее» на карточке, чтобы открыть краткое описание,
+            или перейдите на страницу услуги, чтобы записаться на ремонт.
+        </p>
+        <div class="services-grid services-grid--catalog" id="services-grid"></div>
+    </section>
 </div>
 </main>
+
 <footer class="site-footer">
 <div class="container">
 <div class="site-footer__grid">
@@ -96,9 +103,10 @@
 <div class="site-footer__contacts">
 <h2 class="site-footer__title">Контакты</h2>
 <p class="site-footer__contact"><i class="bi bi-geo-alt" aria-hidden="true"></i>Россия, г. Москва, проспект Вернадского, д. 78</p>
-<p class="site-footer__contact"><i class="bi bi-telegram" aria-hidden="true"></i><a href="https://t.me/compmaster_service" target="_blank" rel="noopener">@compmaster_service</a></p>
-<p class="site-footer__contact"><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:mirea@mirea.ru">mirea@mirea.ru</a></p>
+<p class="site-footer__contact"><i class="bi bi-telephone" aria-hidden="true"></i><a href="tel:+79161233222">+7 916 123 32 22</a></p>
 <p class="site-footer__contact"><i class="bi bi-clock" aria-hidden="true"></i>Пн-Сб: 10:00-20:00 · Вс: 11:00-17:00</p>
+<p class="site-footer__contact"><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:mirea@mirea.ru">mirea@mirea.ru</a></p>
+<p class="site-footer__contact"><i class="bi bi-telegram" aria-hidden="true"></i><a href="https://t.me/compmaster_service" target="_blank" rel="noopener">@compmaster_service</a></p>
 </div>
 </div>
 <div class="site-footer__bottom">
@@ -106,7 +114,7 @@
 </div>
 </div>
 </footer>
-<!-- Модальное окно с краткой информацией об услуге -->
+
 <div class="modal fade service-modal" id="service-modal" tabindex="-1" aria-labelledby="service-modal-title" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered">
 <div class="modal-content">
@@ -129,6 +137,14 @@
 </div>
 </div>
 </div>
-<button class="scroll-top" id="scroll-top" type="button" aria-label="Наверх"><svg class="scroll-top__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M12 3v6"/><path d="M6.5 9h11"/><rect x="11" y="5" width="2" height="2.6" rx="1" fill="currentColor" stroke="none" class="scroll-top__wheel"/></svg></button>
+
+<button class="scroll-top" id="scroll-top" type="button" aria-label="Наверх">
+<svg class="scroll-top__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="6" y="3" width="12" height="18" rx="6"/>
+<path d="M12 3v6"/>
+<path d="M6.5 9h11"/>
+<rect x="11" y="5" width="2" height="2.6" rx="1" fill="currentColor" stroke="none" class="scroll-top__wheel"/>
+</svg>
+</button>
 </body>
 </html>

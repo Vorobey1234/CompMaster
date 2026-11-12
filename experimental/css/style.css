@@ -1084,21 +1084,21 @@ body.custom-cursor * { cursor: none !important; }
   z-index: 4000;
   pointer-events: none;
   border-radius: 50%;
+  mix-blend-mode: difference;
 }
 .cursor-dot {
   width: 6px;
   height: 6px;
   margin: -3px 0 0 -3px;
-  background-color: var(--color-text);
+  background-color: #ffffff;
 }
 .cursor-ring {
   width: 36px;
   height: 36px;
-  border: 1.5px solid rgb(245 245 247 / 55%);
+  border: 1.5px solid rgb(255 255 255 / 90%);
   transition: border-color var(--transition), transform 0.06s ease-out;
 }
-.cursor-ring--active { border-color: var(--color-text); }
-[data-theme="light"] .cursor-ring { border-color: rgb(29 29 31 / 45%); }
+.cursor-ring--active { border-color: #ffffff; }
 @media (pointer: coarse) {
   .cursor-dot, .cursor-ring { display: none; }
 }
@@ -1236,7 +1236,6 @@ body.custom-cursor * { cursor: none !important; }
 [data-theme="light"] .site-footer__logo,
 [data-theme="light"] .site-footer__title { color: var(--color-text); }
 [data-theme="light"] .reading-progress { background: linear-gradient(90deg, #1d1d1f, #6e6e73); }
-[data-theme="light"] .cursor-dot { background-color: #1d1d1f; }
 
 /* 26. ЭКСПЕРИМЕНТ: reveal карточек с каскадом */
 .reveal-card {

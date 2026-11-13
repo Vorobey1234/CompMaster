@@ -464,7 +464,11 @@ updateThemeIcon();
 if (themeToggleButton) {
   themeToggleButton.addEventListener('click', () => {
     const nextTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', nextTheme);
+    const root = document.documentElement;
+    root.classList.add('theme-transition');
+    clearTimeout(window.__themeTimer);
+    window.__themeTimer = setTimeout(() => root.classList.remove('theme-transition'), 700);
+    root.setAttribute('data-theme', nextTheme);
     localStorage.setItem('theme', nextTheme);
     updateThemeIcon();
   });
@@ -578,7 +582,8 @@ if (revealCards.length && 'IntersectionObserver' in window) {
   revealCards.forEach((card) => cardObserver.observe(card));
 }
 
-// ЭКСПЕРИМЕНТ: плавный переход между страницами
+// Плавный переход между страницами
+window.addEventListener('pageshow', () => document.body.classList.remove('page-exit'));
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (!prefersReducedMotion) {
   document.body.classList.add('page-enter');
@@ -590,10 +595,11 @@ document.addEventListener('click', (event) => {
   const url = new URL(link.href, window.location.href);
   if (url.origin !== window.location.origin) return;
   if (url.pathname === window.location.pathname) return;
+  if (!/(\.html|\/)$/.test(url.pathname)) return;
   if (prefersReducedMotion) return;
   event.preventDefault();
   document.body.classList.add('page-exit');
-  window.setTimeout(() => { window.location.href = link.href; }, 180);
+  window.setTimeout(() => { window.location.href = link.href; }, 350);
 });
 
 // ЭКСПЕРИМЕНТ: волна при клике (в стиле курсора, инверсия)
@@ -607,3 +613,4 @@ if (!prefersReducedMotion) {
     ripple.addEventListener('animationend', () => ripple.remove());
   });
 }
+

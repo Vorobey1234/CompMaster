@@ -1305,3 +1305,33 @@ body.custom-cursor * { cursor: none !important; }
 [data-theme="light"] .contact-list__icon { color: var(--color-muted); }
 [data-theme="light"] .breadcrumb { --bs-breadcrumb-divider-color: var(--color-muted); }
 [data-theme="light"] .modal-backdrop { --bs-backdrop-opacity: 0.4; }
+
+/* 28. ЭКСПЕРИМЕНТ: переходы страниц, волна при клике, вдавливание кнопок */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes page-enter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .page-enter { animation: page-enter 0.4s ease both; }
+  .page-exit { opacity: 0; transition: opacity 0.18s ease; }
+  .click-ripple {
+    position: fixed;
+    z-index: 3999;
+    width: 14px;
+    height: 14px;
+    margin: -7px 0 0 -7px;
+    border: 1.5px solid #ffffff;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    animation: click-ripple 0.45s ease-out forwards;
+  }
+  @keyframes click-ripple {
+    from { transform: scale(1); opacity: 0.9; }
+    to { transform: scale(4.5); opacity: 0; }
+  }
+}
+.btn:active,
+.header-icon-btn:active,
+.gallery__btn:active,
+.scroll-top:active { transform: scale(0.95); }

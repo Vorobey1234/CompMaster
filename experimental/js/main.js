@@ -577,3 +577,33 @@ if (revealCards.length && 'IntersectionObserver' in window) {
   }, { threshold: 0.1 });
   revealCards.forEach((card) => cardObserver.observe(card));
 }
+
+// ЭКСПЕРИМЕНТ: плавный переход между страницами
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReducedMotion) {
+  document.body.classList.add('page-enter');
+}
+document.addEventListener('click', (event) => {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const link = event.target.closest('a[href]');
+  if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
+  const url = new URL(link.href, window.location.href);
+  if (url.origin !== window.location.origin) return;
+  if (url.pathname === window.location.pathname) return;
+  if (prefersReducedMotion) return;
+  event.preventDefault();
+  document.body.classList.add('page-exit');
+  window.setTimeout(() => { window.location.href = link.href; }, 180);
+});
+
+// ЭКСПЕРИМЕНТ: волна при клике (в стиле курсора, инверсия)
+if (!prefersReducedMotion) {
+  document.addEventListener('pointerdown', (event) => {
+    const ripple = document.createElement('span');
+    ripple.className = 'click-ripple';
+    ripple.style.left = event.clientX + 'px';
+    ripple.style.top = event.clientY + 'px';
+    document.body.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+  });
+}

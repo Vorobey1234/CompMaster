@@ -1053,3 +1053,298 @@ body::after {
   .gallery__caption { font-size: 0.8rem; }
   .gallery__btn { width: 38px; height: 38px; }
 }
+
+/* 22. ЭКСПЕРИМЕНТ: полоса прогресса чтения */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-text), var(--color-muted));
+  transition: width 0.1s linear;
+}
+
+/* Кнопки темы и поиска в шапке */
+.header-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: var(--color-text);
+  background-color: rgb(255 255 255 / 6%);
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: background-color var(--transition), border-color var(--transition);
+}
+.header-icon-btn:hover { background-color: rgb(255 255 255 / 12%); border-color: rgb(255 255 255 / 28%); }
+[data-theme="light"] .header-icon-btn { background-color: rgb(0 0 0 / 4%); border-color: rgb(0 0 0 / 12%); }
+[data-theme="light"] .header-icon-btn:hover { background-color: rgb(0 0 0 / 8%); border-color: rgb(0 0 0 / 20%); }
+
+/* 23. ЭКСПЕРИМЕНТ: кастомный курсор */
+body.custom-cursor,
+body.custom-cursor * { cursor: none !important; }
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4000;
+  pointer-events: none;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background-color: #ffffff;
+}
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgb(255 255 255 / 90%);
+  transition: border-color var(--transition), transform 0.06s ease-out;
+}
+.cursor-ring--active { border-color: #ffffff; }
+@media (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* 24. ЭКСПЕРИМЕНТ: поиск по сайту */
+.search-overlay { position: fixed; inset: 0; z-index: 2000; display: none; }
+.search-overlay--open { display: block; }
+.search-overlay__backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(0 0 0 / 60%);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.search-overlay__panel {
+  position: relative;
+  max-width: 640px;
+  margin: 10vh auto 0;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+}
+.search-overlay__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+.search-overlay__icon { font-size: 1.1rem; color: var(--color-muted); }
+.search-overlay__input {
+  flex-grow: 1;
+  padding: var(--space-xs) 0;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.05rem;
+}
+.search-overlay__input::placeholder { color: var(--color-muted); }
+.search-overlay__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: var(--color-muted);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+.search-overlay__close:hover { color: var(--color-text); }
+.search-overlay__results { max-height: 52vh; overflow-y: auto; padding: var(--space-sm); }
+.search-result {
+  display: block;
+  padding: var(--space-md);
+  border-radius: 10px;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.search-result:hover { background-color: var(--color-surface-accent); }
+.search-result__title { font-weight: 700; margin: 0 0 2px; }
+.search-result__text { margin: 0; font-size: 0.88rem; color: var(--color-muted); }
+.search-result__empty { padding: var(--space-lg); text-align: center; color: var(--color-muted); }
+
+/* 25. ЭКСПЕРИМЕНТ: светлая тема */
+[data-theme="light"] {
+  --color-bg: #f5f5f7;
+  --color-danger: #d64545;
+  --color-success: #17994c;
+  --color-text: #1d1d1f;
+  --color-muted: #6e6e73;
+  --color-primary: #1d1d1f;
+  --color-primary-dark: #000000;
+  --color-dark: #ffffff;
+  --color-accent: #86868b;
+  --color-border: #d9d9de;
+  --color-surface: #ffffff;
+  --color-surface-accent: #eef0f3;
+  --color-success-bg: #e6f7ec;
+  --color-error-bg: #fdeceb;
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 8%);
+  --shadow-md: 0 6px 18px rgb(0 0 0 / 10%);
+  --shadow-lg: 0 16px 40px rgb(0 0 0 / 16%);
+  --focus-ring: 0 0 0 3px rgb(0 0 0 / 12%);
+}
+[data-theme="light"] body { background-color: var(--color-bg); }
+[data-theme="light"] ::selection { color: #ffffff; background-color: #1d1d1f; }
+[data-theme="light"] .site-header {
+  background-color: rgb(245 245 247 / 85%);
+  border-bottom-color: rgb(0 0 0 / 8%);
+}
+[data-theme="light"] body::before { background: radial-gradient(circle, rgb(120 120 130 / 10%), transparent 60%); }
+[data-theme="light"] body::after { background: radial-gradient(circle, rgb(150 150 160 / 12%), transparent 60%); }
+[data-theme="light"] .service-card,
+[data-theme="light"] .advantage-card,
+[data-theme="light"] .review-card,
+[data-theme="light"] .request-form,
+[data-theme="light"] .filters,
+[data-theme="light"] .filters__help,
+[data-theme="light"] .stats-grid,
+[data-theme="light"] .contact-list__item,
+[data-theme="light"] .reviews-summary,
+[data-theme="light"] .steps-list__item,
+[data-theme="light"] .accordion-item,
+[data-theme="light"] .service-modal .modal-content {
+  background: linear-gradient(rgb(255 255 255 / 80%), rgb(255 255 255 / 55%));
+  border-color: rgb(0 0 0 / 10%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 70%), 0 10px 26px rgb(0 0 0 / 8%);
+}
+[data-theme="light"] .hero { background-color: #1d1d1f; }
+[data-theme="light"] .hero__text { color: rgb(245 245 247 / 72%); }
+[data-theme="light"] .hero__note { color: rgb(245 245 247 / 55%); }
+[data-theme="light"] .hero__list-item .bi { color: rgb(245 245 247 / 75%); }
+[data-theme="light"] .hero__card {
+  background: rgb(255 255 255 / 8%);
+  border-color: rgb(255 255 255 / 16%);
+}
+[data-theme="light"] .btn-dark,
+[data-theme="light"] .btn-outline-secondary { background-color: rgb(0 0 0 / 4%); border-color: rgb(0 0 0 / 15%); }
+[data-theme="light"] .form-control,
+[data-theme="light"] .form-select { background-color: rgb(255 255 255 / 70%); border-color: rgb(0 0 0 / 15%); }
+[data-theme="light"] .form-control:focus,
+[data-theme="light"] .form-select:focus { background-color: #ffffff; box-shadow: 0 0 0 3px rgb(0 0 0 / 8%); }
+[data-theme="light"] .map { filter: none; }
+[data-theme="light"] .site-footer {
+  background: linear-gradient(rgb(245 245 247 / 90%), #f5f5f7);
+  border-top-color: var(--color-border);
+}
+[data-theme="light"] .gallery__btn { background-color: rgb(0 0 0 / 4%); border-color: rgb(0 0 0 / 12%); }
+[data-theme="light"] .service-modal .btn-close { filter: none; }
+[data-theme="light"] .faq .accordion-button::after { filter: none; }
+[data-theme="light"] .stats-grid { color: #ffffff; }
+[data-theme="light"] .site-footer__logo,
+[data-theme="light"] .site-footer__title { color: var(--color-text); }
+[data-theme="light"] .reading-progress { background: linear-gradient(90deg, #1d1d1f, #6e6e73); }
+
+/* 26. ЭКСПЕРИМЕНТ: reveal карточек с каскадом */
+.reveal-card {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-card.reveal-card--visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal-card { opacity: 1; transform: none; transition: none; }
+}
+
+/* 27. Светлая тема: точечные исправления контрастности */
+[data-theme="light"] .stats-grid {
+  background: #1d1d1f;
+  border: 1px solid #0a0a0b;
+  box-shadow: 0 14px 34px rgb(0 0 0 / 16%);
+  color: #ffffff;
+}
+[data-theme="light"] .stats-item__label { color: rgb(255 255 255 / 72%); }
+[data-theme="light"] .site-footer__bottom { border-top-color: var(--color-border); }
+[data-theme="light"] .service-card::before,
+[data-theme="light"] .review-card::before,
+[data-theme="light"] .request-form::before {
+  background: linear-gradient(90deg, transparent, rgb(0 0 0 / 22%), transparent);
+}
+[data-theme="light"] .service-card:hover,
+[data-theme="light"] .review-card:hover {
+  border-color: rgb(0 0 0 / 28%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 80%), 0 14px 30px rgb(0 0 0 / 12%);
+}
+[data-theme="light"] .breadcrumbs .breadcrumb-item.active { color: var(--color-text); }
+/* hero остаётся тёмной панелью и в светлой теме - текст внутри принудительно светлый */
+[data-theme="light"] .hero__title,
+[data-theme="light"] .hero__list-item { color: #f5f5f7; }
+[data-theme="light"] .hero__actions .btn-warning {
+  --bs-btn-color: #1d1d1f;
+  --bs-btn-bg: #f5f5f7;
+  --bs-btn-border-color: #f5f5f7;
+  --bs-btn-hover-color: #f5f5f7;
+  --bs-btn-hover-bg: #1d1d1f;
+  --bs-btn-hover-border-color: #1d1d1f;
+  color: #1d1d1f;
+  background-color: #f5f5f7;
+  border-color: #f5f5f7;
+}
+[data-theme="light"] .hero__actions .btn-outline-light {
+  --bs-btn-color: #f5f5f7;
+  --bs-btn-border-color: rgb(245 245 247 / 60%);
+  --bs-btn-hover-color: #1d1d1f;
+  --bs-btn-hover-bg: #f5f5f7;
+  --bs-btn-hover-border-color: #f5f5f7;
+  color: #f5f5f7;
+  border-color: rgb(245 245 247 / 60%);
+}
+[data-theme="light"] .hero__card,
+[data-theme="light"] .hero__card * { color: #f5f5f7; }
+[data-theme="light"] .request-form__agreement { color: var(--color-muted); }
+[data-theme="light"] .request-form { color: var(--color-text); }
+[data-theme="light"] .badge-tag { color: #ffffff; background-color: #1d1d1f; }
+[data-theme="light"] .scroll-top { color: #ffffff; }
+[data-theme="light"] .gallery__viewport { background: #ffffff; }
+[data-theme="light"] .search-overlay__panel { background-color: #ffffff; }
+[data-theme="light"] .contact-list__item .bi { color: var(--color-muted); }
+[data-theme="light"] .service-card__icon,
+[data-theme="light"] .advantage-card__icon,
+[data-theme="light"] .contact-list__icon { color: var(--color-muted); }
+[data-theme="light"] .breadcrumb { --bs-breadcrumb-divider-color: var(--color-muted); }
+[data-theme="light"] .modal-backdrop { --bs-backdrop-opacity: 0.4; }
+
+/* 28. ЭКСПЕРИМЕНТ: переходы страниц, волна при клике, вдавливание кнопок */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes page-enter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .page-enter { animation: page-enter 0.4s ease both; }
+  .page-exit { opacity: 0; transition: opacity 0.18s ease; }
+  .click-ripple {
+    position: fixed;
+    z-index: 3999;
+    width: 14px;
+    height: 14px;
+    margin: -7px 0 0 -7px;
+    border: 1.5px solid #ffffff;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    animation: click-ripple 0.45s ease-out forwards;
+  }
+  @keyframes click-ripple {
+    from { transform: scale(1); opacity: 0.9; }
+    to { transform: scale(4.5); opacity: 0; }
+  }
+}
+.btn:active,
+.header-icon-btn:active,
+.gallery__btn:active,
+.scroll-top:active { transform: scale(0.95); }

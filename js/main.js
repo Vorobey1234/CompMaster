@@ -433,3 +433,177 @@ if (galleryTrack) {
 
   restartGallery();
 }
+
+// ЭКСПЕРИМЕНТ: полоса прогресса чтения
+const readingProgress = document.getElementById('reading-progress');
+if (readingProgress) {
+  const updateReadingProgress = () => {
+    const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = pageHeight > 0 ? Math.min(100, (window.scrollY / pageHeight) * 100) : 0;
+    readingProgress.style.width = percent + '%';
+  };
+  window.addEventListener('scroll', updateReadingProgress, { passive: true });
+  updateReadingProgress();
+}
+
+// ЭКСПЕРИМЕНТ: светлую и тёмную тему с запоминанием выбора
+const themeToggleButton = document.getElementById('theme-toggle');
+document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+
+function updateThemeIcon() {
+  if (!themeToggleButton) return;
+  const icon = themeToggleButton.querySelector('i');
+  if (icon) {
+    icon.className = document.documentElement.getAttribute('data-theme') === 'light'
+      ? 'bi bi-moon-fill'
+      : 'bi bi-sun-fill';
+  }
+}
+updateThemeIcon();
+
+if (themeToggleButton) {
+  themeToggleButton.addEventListener('click', () => {
+    const nextTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', nextTheme);
+    localStorage.setItem('theme', nextTheme);
+    updateThemeIcon();
+  });
+}
+
+// ЭКСПЕРИМЕНТ: кастомный курсор (точка + кольцо)
+const cursorDot = document.getElementById('cursor-dot');
+const cursorRing = document.getElementById('cursor-ring');
+
+if (cursorDot && cursorRing && window.matchMedia('(pointer: fine)').matches) {
+  document.body.classList.add('custom-cursor');
+  window.addEventListener('mousemove', (event) => {
+    cursorDot.style.transform = 'translate(' + event.clientX + 'px, ' + event.clientY + 'px)';
+    cursorRing.style.transform = 'translate(' + (event.clientX - 18) + 'px, ' + (event.clientY - 18) + 'px)';
+  });
+  document.addEventListener('mouseover', (event) => {
+    const interactive = event.target.closest('a, button, input, select, textarea, .service-card');
+    cursorRing.classList.toggle('cursor-ring--active', Boolean(interactive));
+  });
+}
+
+// ЭКСПЕРИМЕНТ: поиск по сайту (услуги + страницы)
+const searchOverlay = document.getElementById('search-overlay');
+const searchInput = document.getElementById('search-input');
+const searchResults = document.getElementById('search-results');
+const SEARCH_PAGES = [
+  { title: 'Главная', text: 'Баннер, преимущества, популярные услуги, этапы работы, статистика', url: 'index.html' },
+  { title: 'Каталог услуг', text: 'Все услуги сервисного центра с фильтрами', url: 'catalog.html' },
+  { title: 'Запись на ремонт', text: 'Форма заявки: имя, телефон, услуга, устройство', url: 'service.html' },
+  { title: 'Отзывы', text: 'Отзывы клиентов и форма «Оставить отзыв»', url: 'reviews.html' },
+  { title: 'О нас', text: 'О сервисном центре, принципы и галерея', url: 'about.html' },
+  { title: 'Контакты', text: 'Адрес, карта, обратная связь, вопрос-ответ', url: 'contacts.html' }
+];
+
+function renderSearchResults(query) {
+  if (!searchResults) return;
+  const q = query.trim().toLowerCase();
+  if (!q) {
+    searchResults.innerHTML = '<p class="search-result__empty">Начните вводить: например, «диагностика», «ssd», «контакты»</p>';
+    return;
+  }
+  const foundServices = SERVICES.filter((service) =>
+    service.name.toLowerCase().includes(q) ||
+    service.short.toLowerCase().includes(q) ||
+    getCategoryName(service.category).toLowerCase().includes(q)
+  ).map((service) => ({
+    title: service.name,
+    text: getCategoryName(service.category) + ' · ' + service.price + ' руб · ' + service.short,
+    url: 'service.html?id=' + service.id
+  }));
+  const foundPages = SEARCH_PAGES.filter((page) =>
+    page.title.toLowerCase().includes(q) || page.text.toLowerCase().includes(q)
+  );
+  const results = foundServices.concat(foundPages);
+  if (results.length === 0) {
+    searchResults.innerHTML = '<p class="search-result__empty">Ничего не найдено. Попробуйте другой запрос.</p>';
+    return;
+  }
+  searchResults.innerHTML = results.map((result) =>
+    '<a class="search-result" href="' + result.url + '">' +
+    '<p class="search-result__title">' + result.title + '</p>' +
+    '<p class="search-result__text">' + result.text + '</p>' +
+    '</a>'
+  ).join('');
+}
+
+function openSearchOverlay() {
+  if (!searchOverlay) return;
+  searchOverlay.classList.add('search-overlay--open');
+  searchOverlay.setAttribute('aria-hidden', 'false');
+  renderSearchResults(searchInput ? searchInput.value : '');
+  if (searchInput) searchInput.focus();
+}
+
+function closeSearchOverlay() {
+  if (!searchOverlay) return;
+  searchOverlay.classList.remove('search-overlay--open');
+  searchOverlay.setAttribute('aria-hidden', 'true');
+}
+
+const searchOpenButton = document.getElementById('search-open');
+const searchCloseButton = document.getElementById('search-close');
+const searchBackdrop = document.getElementById('search-backdrop');
+
+if (searchOpenButton) searchOpenButton.addEventListener('click', openSearchOverlay);
+if (searchCloseButton) searchCloseButton.addEventListener('click', closeSearchOverlay);
+if (searchBackdrop) searchBackdrop.addEventListener('click', closeSearchOverlay);
+if (searchInput) searchInput.addEventListener('input', () => renderSearchResults(searchInput.value));
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeSearchOverlay();
+  if (event.ctrlKey && event.key.toLowerCase() === 'k') {
+    event.preventDefault();
+    openSearchOverlay();
+  }
+});
+
+// ЭКСПЕРИМЕНТ: reveal-анимации карточек с каскадом
+const revealCards = document.querySelectorAll('.service-card, .review-card, .advantage-card, .contact-list__item');
+if (revealCards.length && 'IntersectionObserver' in window) {
+  revealCards.forEach((card) => card.classList.add('reveal-card'));
+  const cardObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const delay = Array.prototype.indexOf.call(entry.target.parentNode.children, entry.target) % 4 * 70;
+        entry.target.style.transitionDelay = delay + 'ms';
+        entry.target.classList.add('reveal-card--visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealCards.forEach((card) => cardObserver.observe(card));
+}
+
+// ЭКСПЕРИМЕНТ: плавный переход между страницами
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReducedMotion) {
+  document.body.classList.add('page-enter');
+}
+document.addEventListener('click', (event) => {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const link = event.target.closest('a[href]');
+  if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
+  const url = new URL(link.href, window.location.href);
+  if (url.origin !== window.location.origin) return;
+  if (url.pathname === window.location.pathname) return;
+  if (prefersReducedMotion) return;
+  event.preventDefault();
+  document.body.classList.add('page-exit');
+  window.setTimeout(() => { window.location.href = link.href; }, 180);
+});
+
+// ЭКСПЕРИМЕНТ: волна при клике (в стиле курсора, инверсия)
+if (!prefersReducedMotion) {
+  document.addEventListener('pointerdown', (event) => {
+    const ripple = document.createElement('span');
+    ripple.className = 'click-ripple';
+    ripple.style.left = event.clientX + 'px';
+    ripple.style.top = event.clientY + 'px';
+    document.body.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+  });
+}

@@ -13,6 +13,9 @@
 <script src="js/main.js" defer></script>
 </head>
 <body>
+<div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
 <header class="site-header">
 <div class="container site-header__inner">
@@ -28,6 +31,8 @@
 </ul>
 </nav>
 <div class="site-header__actions">
+<button class="header-icon-btn" id="theme-toggle" type="button" aria-label="Сменить тему"><i class="bi bi-sun-fill" aria-hidden="true"></i></button>
+<button class="header-icon-btn" id="search-open" type="button" aria-label="Поиск по сайту"><i class="bi bi-search" aria-hidden="true"></i></button>
 <a class="btn btn-primary btn-sm" href="catalog.html"><i class="bi bi-list-check" aria-hidden="true"></i> Каталог услуг</a>
 </div>
 </div>
@@ -169,5 +174,17 @@
 </footer>
 
 <button class="scroll-top" id="scroll-top" type="button" aria-label="Наверх"><svg class="scroll-top__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M12 3v6"/><path d="M6.5 9h11"/><rect x="11" y="5" width="2" height="2.6" rx="1" fill="currentColor" stroke="none" class="scroll-top__wheel"/></svg></button>
+
+<div class="search-overlay" id="search-overlay" aria-hidden="true">
+<div class="search-overlay__backdrop" id="search-backdrop"></div>
+<div class="search-overlay__panel" role="dialog" aria-modal="true" aria-label="Поиск по сайту">
+<div class="search-overlay__header">
+<i class="bi bi-search search-overlay__icon" aria-hidden="true"></i>
+<input class="search-overlay__input" id="search-input" type="search" placeholder="Поиск: услуги, страницы..." autocomplete="off">
+<button class="search-overlay__close" id="search-close" type="button" aria-label="Закрыть поиск"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+</div>
+<div class="search-overlay__results" id="search-results" role="listbox"></div>
+</div>
+</div>
 </body>
 </html>

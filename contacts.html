@@ -13,6 +13,9 @@
 <script src="js/main.js" defer></script>
 </head>
 <body>
+<div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
 <header class="site-header">
 <div class="container site-header__inner">
@@ -28,6 +31,8 @@
 </ul>
 </nav>
 <div class="site-header__actions">
+<button class="header-icon-btn" id="theme-toggle" type="button" aria-label="Сменить тему"><i class="bi bi-sun-fill" aria-hidden="true"></i></button>
+<button class="header-icon-btn" id="search-open" type="button" aria-label="Поиск по сайту"><i class="bi bi-search" aria-hidden="true"></i></button>
 <a class="btn btn-primary btn-sm" href="service.html?id=1#request">
 <i class="bi bi-calendar-check"></i> Записаться на диагностику
 </a>
@@ -210,5 +215,17 @@
 <rect x="11" y="5" width="2" height="2.6" rx="1" fill="currentColor" stroke="none" class="scroll-top__wheel"/>
 </svg>
 </button>
+
+<div class="search-overlay" id="search-overlay" aria-hidden="true">
+<div class="search-overlay__backdrop" id="search-backdrop"></div>
+<div class="search-overlay__panel" role="dialog" aria-modal="true" aria-label="Поиск по сайту">
+<div class="search-overlay__header">
+<i class="bi bi-search search-overlay__icon" aria-hidden="true"></i>
+<input class="search-overlay__input" id="search-input" type="search" placeholder="Поиск: услуги, страницы..." autocomplete="off">
+<button class="search-overlay__close" id="search-close" type="button" aria-label="Закрыть поиск"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+</div>
+<div class="search-overlay__results" id="search-results" role="listbox"></div>
+</div>
+</div>
 </body>
 </html>

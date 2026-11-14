@@ -1263,12 +1263,12 @@ body.custom-cursor * { cursor: none !important; }
 
 /* 27. Светлая тема: точечные исправления контрастности */
 [data-theme="light"] .stats-grid {
-  background: #efe4d2;
-  border: 1px solid #ddcdb3;
-  box-shadow: 0 14px 34px rgb(120 90 50 / 12%);
+  background: #ffffff;
+  border: 1px solid rgb(0 0 0 / 10%);
+  box-shadow: 0 14px 34px rgb(0 0 0 / 8%);
   color: #1d1d1f;
 }
-[data-theme="light"] .stats-item__label { color: #6b5d4a; }
+[data-theme="light"] .stats-item__label { color: #6e6e73; }
 [data-theme="light"] .site-footer__bottom { border-top-color: var(--color-border); }
 [data-theme="light"] .service-card::before,
 [data-theme="light"] .review-card::before,

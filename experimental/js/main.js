@@ -607,3 +607,72 @@ if (!prefersReducedMotion) {
     ripple.addEventListener('animationend', () => ripple.remove());
   });
 }
+
+// Цифры в блоке статистики: плавный счёт от 0 до значения при прокрутке
+const statValues = document.querySelectorAll('.stats-item__value');
+if (statValues.length && 'IntersectionObserver' in window
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const parseStat = (text) => {
+    const match = text.match(/^(\D*)([\d\s\u00a0]+(?:[.,]\d+)?)(.*)$/);
+    if (!match) return null;
+    const numberText = match[2].replace(/[\s\u00a0]/g, '');
+    const separator = numberText.includes(',') ? ',' : '.';
+    const decimals = (numberText.split(/[.,]/)[1] || '').length;
+    return {
+      prefix: match[1],
+      suffix: match[3],
+      target: parseFloat(numberText.replace(',', '.')),
+      decimals,
+      separator,
+      grouped: /[\s\u00a0]/.test(match[2].trim()),
+      original: text,
+    };
+  };
+  const formatStat = (stat, value) => {
+    let [whole, fraction] = value.toFixed(stat.decimals).split('.');
+    if (stat.grouped) whole = whole.replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0');
+    return stat.prefix + whole + (fraction ? stat.separator + fraction : '') + stat.suffix;
+  };
+  const easeOutExpo = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
+  const runCount = (element, stat, delay) => {
+    const duration = 2000;
+    let start = null;
+    const step = (now) => {
+      if (start === null) start = now + delay;
+      const progress = Math.min(Math.max((now - start) / duration, 0), 1);
+      element.textContent = formatStat(stat, stat.target * easeOutExpo(progress));
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        element.textContent = stat.original;
+        element.classList.add('stats-item__value--done');
+      }
+    };
+    requestAnimationFrame(step);
+  };
+
+  const stats = new Map();
+  statValues.forEach((element) => {
+    const stat = parseStat(element.textContent.trim());
+    if (!stat || !isFinite(stat.target)) return;
+    stats.set(element, stat);
+    element.setAttribute('aria-label', stat.original);
+    element.classList.add('stats-item__value--counting');
+    element.textContent = formatStat(stat, 0);
+  });
+
+  const statsObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+      const items = Array.from(entry.target.querySelectorAll('.stats-item__value'));
+      items.forEach((element, index) => {
+        const stat = stats.get(element);
+        if (stat) runCount(element, stat, index * 150);
+      });
+    });
+  }, { threshold: 0.35 });
+  const statGroups = new Set();
+  stats.forEach((_, element) => statGroups.add(element.closest('.stats-grid') || element));
+  statGroups.forEach((group) => statsObserver.observe(group));
+}

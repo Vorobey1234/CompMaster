@@ -1115,6 +1115,10 @@ body.custom-cursor * { cursor: none !important; }
 @media (pointer: coarse) {
   .cursor-dot, .cursor-ring { display: none; }
 }
+/* Курсор инвертирует цвет над любым фоном: фон страницы рисует сам body
+   (а не «холст» браузера), поэтому mix-blend-mode работает везде */
+html { background-color: var(--color-bg); }
+body { position: relative; z-index: 0; min-height: 100vh; }
 
 /* 24. ЭКСПЕРИМЕНТ: поиск по сайту */
 .search-overlay { position: fixed; inset: 0; z-index: 2000; display: none; }
